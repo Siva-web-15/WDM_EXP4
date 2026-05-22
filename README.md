@@ -15,15 +15,26 @@
 
 ### Program:
 ```python
-# Visitor segmentation based on characteristics
-# read the data
-/*WRITE YOUR CODE HERE
+import pandas as pd
+df = pd.read_csv('clustervisitor.csv')
 
-# Perform segmentation based on characteristics (e.g., age groups)
-/*WRITE YOUR CODE HERE
+cluster = {
+    'Young': df['Age'] <= 30,
+    'Middle-aged': (df['Age'] > 30) & (df['Age'] <= 50),
+    'Elderly': df['Age'] > 50
+}
+count =[]
+for g, v in cluster.items():  
+    visitors = df[v] 
+    print(f"Visitors in {g} are\n",visitors)
+    print("Visitor count",len(visitors))
+    count.append(len(visitors))
 
 ```
 ### Output:
+
+
+<img width="1053" height="753" alt="image" src="https://github.com/user-attachments/assets/1f46669e-b8b6-4daa-a6cd-652a99fe2cd8" />
 
 ### Visualization:
 ```python
@@ -46,4 +57,12 @@ plt.show()
 ### Output:
 
 
+
+
+
+<img width="700" height="547" alt="image" src="https://github.com/user-attachments/assets/9400f53b-61ef-4d77-9782-f7383b0cb901" />
+
+
 ### Result:
+
+Thus the cluster and visitor segmentation for navigation patterns was implemented successfully in python.
